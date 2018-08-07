@@ -1,11 +1,11 @@
 package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class EvaluationService {
-
 	/**
 	 * 1. Without using the StringBuilder or StringBuffer class, write a method that
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
@@ -31,7 +31,17 @@ public class EvaluationService {
 	 */
 	public String acronym(String phrase) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		String upper = phrase.toUpperCase();
+		String acro = "";
+		for(int i = 0; i<upper.length(); i++) {
+			if(i == 0) {
+				acro += upper.charAt(i);
+			}
+			else if(upper.charAt(i) == ' ' || upper.charAt(i) == '-') {
+				acro += upper.charAt(i+1);
+			}
+		}
+		return new String(acro);
 	}
 
 	/**
