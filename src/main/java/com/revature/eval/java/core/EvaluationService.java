@@ -142,7 +142,36 @@ public class EvaluationService {
 	 */
 	public int getScrabbleScore(String string) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		int totalPoints = 0;
+		String lstring = string.toLowerCase();
+		for(int i = 0; i < lstring.length(); i++) {
+			if(lstring.charAt(i) == 'a' || lstring.charAt(i) == 'e' || lstring.charAt(i) == 'i' || lstring.charAt(i) == 'o'
+					|| lstring.charAt(i) == 'u' || lstring.charAt(i) == 'l' || lstring.charAt(i) == 'n' || lstring.charAt(i) == 'r'
+					|| lstring.charAt(i) == 's' || lstring.charAt(i) == 't') {
+				totalPoints += 1;
+			}
+			else if(lstring.charAt(i) == 'd' || lstring.charAt(i) == 'g') {
+				totalPoints += 2;
+			}
+			else if(lstring.charAt(i) == 'b' || lstring.charAt(i) == 'c' || lstring.charAt(i) == 'm' || lstring.charAt(i) == 'p') {
+				totalPoints += 3;
+			}
+			else if(lstring.charAt(i) == 'f' || lstring.charAt(i) == 'h' || lstring.charAt(i) == 'v' || lstring.charAt(i) == 'w'
+					|| lstring.charAt(i) == 'y') {
+				totalPoints += 4;
+			}
+			else if(lstring.charAt(i) == 'k') {
+				totalPoints += 5;
+			}
+			else if(lstring.charAt(i) == 'j' || lstring.charAt(i) == 'x') {
+				totalPoints += 8;
+			}
+			else if(lstring.charAt(i) == 'q' || lstring.charAt(i) == 'z') {
+				totalPoints +=10;
+			}
+		}
+		
+		return totalPoints;
 	}
 
 	/**
