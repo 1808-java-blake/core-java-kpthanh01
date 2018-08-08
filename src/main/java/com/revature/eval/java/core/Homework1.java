@@ -3,54 +3,47 @@ package com.revature.eval.java.core;
 public class Homework1 {
 	public static void main(String[] args) {
 		Homework1 test = new Homework1();
-		test.cleanPhoneNumber("+1 (223) 456-7890");
-		test.cleanPhoneNumber("223.456.7890");
-		test.cleanPhoneNumber("223 456   7890   ");
-		test.cleanPhoneNumber("321234567890");
-		test.cleanPhoneNumber("123-abc-7890");
-		test.cleanPhoneNumber("123-@:!-7890");
+		test.isArmstrongNumber(5);
+		test.isArmstrongNumber(10);
+		test.isArmstrongNumber(153);
+		test.isArmstrongNumber(100);
+		test.isArmstrongNumber(9474);
 
 	}
 	/**
-	 * 5. Clean up user-entered phone numbers so that they can be sent SMS messages.
+	 * 9. An Armstrong number is a number that is the sum of its own digits each
+	 * raised to the power of the number of digits.
 	 * 
-	 * The North American Numbering Plan (NANP) is a telephone numbering system used
-	 * by many countries in North America like the United States, Canada or Bermuda.
-	 * All NANP-countries share the same international country code: 1.
+	 * For example:
 	 * 
-	 * NANP numbers are ten-digit numbers consisting of a three-digit Numbering Plan
-	 * Area code, commonly known as area code, followed by a seven-digit local
-	 * number. The first three digits of the local number represent the exchange
-	 * code, followed by the unique four-digit number which is the subscriber
-	 * number.
+	 * 9 is an Armstrong number, because 9 = 9^1 = 9 10 is not an Armstrong number,
+	 * because 10 != 1^2 + 0^2 = 2 153 is an Armstrong number, because: 153 = 1^3 +
+	 * 5^3 + 3^3 = 1 + 125 + 27 = 153 154 is not an Armstrong number, because: 154
+	 * != 1^3 + 5^3 + 4^3 = 1 + 125 + 64 = 190 Write some code to determine whether
+	 * a number is an Armstrong number.
 	 * 
-	 * The format is usually represented as
-	 * 
-	 * 1 (NXX)-NXX-XXXX where N is any digit from 2 through 9 and X is any digit
-	 * from 0 through 9.
-	 * 
-	 * Your task is to clean up differently formatted telephone numbers by removing
-	 * punctuation and the country code (1) if present.
-	 * 
-	 * For example, the inputs
-	 * 
-	 * +1 (613)-995-0253 613-995-0253 1 613 995 0253 613.995.0253 should all produce
-	 * the output
-	 * 
-	 * 6139950253
-	 * 
-	 * Note: As this exercise only deals with telephone numbers used in
-	 * NANP-countries, only 1 is considered a valid country code.
+	 * @param input
+	 * @return
 	 */
-	public String cleanPhoneNumber(String string) {
-		// TODO Write an implementation for this method declaration
-		String cleanNumber = string.replaceAll("\\s+|\\D+", "");
-		if(cleanNumber.charAt(0) == '1' && cleanNumber.length() == 11) {
-			cleanNumber = cleanNumber.replaceFirst("1", "");
+	public boolean isArmstrongNumber(int input) {
+		int digits = 0;
+		int temp = 1;
+		int power = 0;
+		int correctAnswer = input; 
+		int answer = 0;
+		while(temp <= input) {
+			digits++;
+			temp *= 10;
 		}
-		else if(cleanNumber.length() != 10) {
-			System.out.println("This number does not work");
+		while(input > 0) {
+			power = input % 10;
+			input = input / 10;
+			answer = (int) (answer + (Math.pow(power, digits)));
 		}
-		return cleanNumber;
+		if(answer == correctAnswer) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

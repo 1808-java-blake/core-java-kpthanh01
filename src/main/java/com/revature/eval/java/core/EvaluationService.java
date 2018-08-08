@@ -326,8 +326,25 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isArmstrongNumber(int input) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		int digits = 0;
+		int temp = 1;
+		int power = 0;
+		int correctAnswer = input; 
+		int answer = 0;
+		while(temp <= input) {
+			digits++;
+			temp *= 10;
+		}
+		while(input > 0) {
+			power = input % 10;
+			input = input / 10;
+			answer = (int) (answer + (Math.pow(power, digits)));
+		}
+		if(answer == correctAnswer) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
