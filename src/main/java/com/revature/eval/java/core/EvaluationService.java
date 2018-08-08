@@ -510,8 +510,21 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		boolean[] alphabetCheck = new boolean[26];
+		int index;
+		
+		for(int i = 0; i < string.length(); i++) {
+			if('a' <= string.charAt(i) && string.charAt(i) <= 'z') {
+				index = string.charAt(i) - 'a';
+				alphabetCheck[index] = true;
+			} 
+		}
+		for(int i = 0; i < alphabetCheck.length; i++) {
+			if(alphabetCheck[i] == false) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
