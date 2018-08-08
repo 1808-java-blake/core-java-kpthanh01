@@ -1,41 +1,59 @@
 package com.revature.eval.java.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Homework1 {
 	public static void main(String[] args) {
 		Homework1 test = new Homework1();
-		test.isPangram("abcdefghijklmnopqrstuvwxyz");
+		int[] set = { 4, 6 };
+		test.toPigLatin("quick fast run");
 
 	}
 	/**
-	 * 16. Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan
-	 * gramma, "every letter") is a sentence using every letter of the alphabet at
-	 * least once. The best known English pangram is:
+	 * 8. Implement a program that translates from English to Pig Latin.
 	 * 
-	 * The quick brown fox jumps over the lazy dog.
+	 * Pig Latin is a made-up children's language that's intended to be confusing.
+	 * It obeys a few simple rules (below), but when it's spoken quickly it's really
+	 * difficult for non-children (and non-native speakers) to understand.
 	 * 
-	 * The alphabet used consists of ASCII letters a to z, inclusive, and is case
-	 * insensitive. Input will not contain non-ASCII symbols.
+	 * Rule 1: If a word begins with a vowel sound, add an "ay" sound to the end of
+	 * the word. Rule 2: If a word begins with a consonant sound, move it to the end
+	 * of the word, and then add an "ay" sound to the end of the word. There are a
+	 * few more rules for edge cases, and there are regional variants too.
+	 * 
+	 * See http://en.wikipedia.org/wiki/Pig_latin for more details.
 	 * 
 	 * @param string
 	 * @return
 	 */
-	public boolean isPangram(String string) {
+	public String toPigLatin(String string) {
 		// TODO Write an implementation for this method declaration
-		boolean[] alphabetCheck = new boolean[26];
-		int index;
+//		int stringLength = string.length();
+//		String pigLatin = string;
+//		String trimmed = "";
+//		String answer = "";
+//		for(int i = 0; i < pigLatin.length(); i++) {
+//			if("aeiou".indexOf(pigLatin.charAt(i)) != -1) {
+//				trimmed = pigLatin.substring(0, i);
+//				pigLatin = pigLatin.substring(i, stringLength);
+//				break;
+//			}
+//		}
+//		answer = pigLatin + trimmed + "ay";
+		String answer = "";
 		
-		for(int i = 0; i < string.length(); i++) {
-			if('a' <= string.charAt(i) && string.charAt(i) <= 'z') {
-				index = string.charAt(i) - 'a';
-				alphabetCheck[index] = true;
-			} 
-		}
-		for(int i = 0; i < alphabetCheck.length; i++) {
-			if(alphabetCheck[i] == false) {
-				System.out.println("this is not a pangram");
-				return false;
+		String[] tokens = string.split(" ");
+		
+		for(String word : tokens) {
+			for(int i = 0; i < word.length(); i++) {
+				if("aeiou".indexOf(word.charAt(i)) != -1) {
+					answer += word.substring(i, word.length()) + word.substring(0, i) + "ay ";
+					break;
+				}
 			}
 		}
-		return true;
+		System.out.println(answer);
+		return answer.trim();
 	}
 }

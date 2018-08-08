@@ -15,7 +15,7 @@ public class EvaluationService {
 	 */
 	public String reverse(String string) {
 		char[] reversed = new char[string.length()];
-		for (int i = reversed.length - 1, j=0; i >= 0; i--, j++) {
+		for (int i = reversed.length - 1, j = 0; i >= 0; i--, j++) {
 			reversed[j] = string.charAt(i);
 		}
 		return new String(reversed);
@@ -33,12 +33,11 @@ public class EvaluationService {
 		// TODO Write an implementation for this method declaration
 		String upper = phrase.toUpperCase();
 		String acro = "";
-		for(int i = 0; i<upper.length(); i++) {
-			if(i == 0) {
+		for (int i = 0; i < upper.length(); i++) {
+			if (i == 0) {
 				acro += upper.charAt(i);
-			}
-			else if(upper.charAt(i) == ' ' || upper.charAt(i) == '-') {
-				acro += upper.charAt(i+1);
+			} else if (upper.charAt(i) == ' ' || upper.charAt(i) == '-') {
+				acro += upper.charAt(i + 1);
 			}
 		}
 		return new String(acro);
@@ -95,7 +94,7 @@ public class EvaluationService {
 
 		public boolean isEquilateral() {
 			// TODO Write an implementation for this method declaration
-			if(sideOne == sideTwo && sideOne == sideThree) {
+			if (sideOne == sideTwo && sideOne == sideThree) {
 				return true;
 			}
 			return false;
@@ -103,13 +102,11 @@ public class EvaluationService {
 
 		public boolean isIsosceles() {
 			// TODO Write an implementation for this method declaration
-			if(sideOne == sideTwo && sideOne != sideThree) {
+			if (sideOne == sideTwo && sideOne != sideThree) {
 				return true;
-			}
-			else if(sideTwo == sideThree && sideTwo != sideOne) {
+			} else if (sideTwo == sideThree && sideTwo != sideOne) {
 				return true;
-			}
-			else if(sideThree == sideOne && sideThree != sideTwo) {
+			} else if (sideThree == sideOne && sideThree != sideTwo) {
 				return true;
 			}
 			return false;
@@ -117,7 +114,7 @@ public class EvaluationService {
 
 		public boolean isScalene() {
 			// TODO Write an implementation for this method declaration
-			if(sideOne != sideTwo && sideTwo != sideThree && sideThree != sideOne) {
+			if (sideOne != sideTwo && sideTwo != sideThree && sideThree != sideOne) {
 				return true;
 			}
 			return false;
@@ -144,33 +141,29 @@ public class EvaluationService {
 		// TODO Write an implementation for this method declaration
 		int totalPoints = 0;
 		String lstring = string.toLowerCase();
-		for(int i = 0; i < lstring.length(); i++) {
-			if(lstring.charAt(i) == 'a' || lstring.charAt(i) == 'e' || lstring.charAt(i) == 'i' || lstring.charAt(i) == 'o'
-					|| lstring.charAt(i) == 'u' || lstring.charAt(i) == 'l' || lstring.charAt(i) == 'n' || lstring.charAt(i) == 'r'
-					|| lstring.charAt(i) == 's' || lstring.charAt(i) == 't') {
+		for (int i = 0; i < lstring.length(); i++) {
+			if (lstring.charAt(i) == 'a' || lstring.charAt(i) == 'e' || lstring.charAt(i) == 'i'
+					|| lstring.charAt(i) == 'o' || lstring.charAt(i) == 'u' || lstring.charAt(i) == 'l'
+					|| lstring.charAt(i) == 'n' || lstring.charAt(i) == 'r' || lstring.charAt(i) == 's'
+					|| lstring.charAt(i) == 't') {
 				totalPoints += 1;
-			}
-			else if(lstring.charAt(i) == 'd' || lstring.charAt(i) == 'g') {
+			} else if (lstring.charAt(i) == 'd' || lstring.charAt(i) == 'g') {
 				totalPoints += 2;
-			}
-			else if(lstring.charAt(i) == 'b' || lstring.charAt(i) == 'c' || lstring.charAt(i) == 'm' || lstring.charAt(i) == 'p') {
+			} else if (lstring.charAt(i) == 'b' || lstring.charAt(i) == 'c' || lstring.charAt(i) == 'm'
+					|| lstring.charAt(i) == 'p') {
 				totalPoints += 3;
-			}
-			else if(lstring.charAt(i) == 'f' || lstring.charAt(i) == 'h' || lstring.charAt(i) == 'v' || lstring.charAt(i) == 'w'
-					|| lstring.charAt(i) == 'y') {
+			} else if (lstring.charAt(i) == 'f' || lstring.charAt(i) == 'h' || lstring.charAt(i) == 'v'
+					|| lstring.charAt(i) == 'w' || lstring.charAt(i) == 'y') {
 				totalPoints += 4;
-			}
-			else if(lstring.charAt(i) == 'k') {
+			} else if (lstring.charAt(i) == 'k') {
 				totalPoints += 5;
-			}
-			else if(lstring.charAt(i) == 'j' || lstring.charAt(i) == 'x') {
+			} else if (lstring.charAt(i) == 'j' || lstring.charAt(i) == 'x') {
 				totalPoints += 8;
-			}
-			else if(lstring.charAt(i) == 'q' || lstring.charAt(i) == 'z') {
-				totalPoints +=10;
+			} else if (lstring.charAt(i) == 'q' || lstring.charAt(i) == 'z') {
+				totalPoints += 10;
 			}
 		}
-		
+
 		return totalPoints;
 	}
 
@@ -207,10 +200,9 @@ public class EvaluationService {
 	 */
 	public String cleanPhoneNumber(String string) {
 		String cleanNumber = string.replaceAll("\\s+|\\D+", "");
-		if(cleanNumber.charAt(0) == '1' && cleanNumber.length() == 11) {
+		if (cleanNumber.charAt(0) == '1' && cleanNumber.length() == 11) {
 			cleanNumber = cleanNumber.replaceFirst("1", "");
-		}
-		else if(cleanNumber.length() != 10) {
+		} else if (cleanNumber.length() != 10) {
 			throw new IllegalArgumentException("This is not fit the NANP Model");
 		}
 		return cleanNumber;
@@ -306,8 +298,19 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String toPigLatin(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		String answer = "";
+
+		String[] tokens = string.split(" ");
+
+		for (String word : tokens) {
+			for (int i = 0; i < word.length(); i++) {
+				if ("aeiou".indexOf(word.charAt(i)) != -1) {
+					answer += word.substring(i, word.length()) + word.substring(0, i) + "ay ";
+					break;
+				}
+			}
+		}
+		return answer.trim();
 	}
 
 	/**
@@ -329,18 +332,18 @@ public class EvaluationService {
 		int digits = 0;
 		int temp = 1;
 		int power = 0;
-		int correctAnswer = input; 
+		int correctAnswer = input;
 		int answer = 0;
-		while(temp <= input) {
+		while (temp <= input) {
 			digits++;
 			temp *= 10;
 		}
-		while(input > 0) {
+		while (input > 0) {
 			power = input % 10;
 			input = input / 10;
 			answer = (int) (answer + (Math.pow(power, digits)));
 		}
-		if(answer == correctAnswer) {
+		if (answer == correctAnswer) {
 			return true;
 		} else {
 			return false;
@@ -512,15 +515,15 @@ public class EvaluationService {
 	public boolean isPangram(String string) {
 		boolean[] alphabetCheck = new boolean[26];
 		int index;
-		
-		for(int i = 0; i < string.length(); i++) {
-			if('a' <= string.charAt(i) && string.charAt(i) <= 'z') {
+
+		for (int i = 0; i < string.length(); i++) {
+			if ('a' <= string.charAt(i) && string.charAt(i) <= 'z') {
 				index = string.charAt(i) - 'a';
 				alphabetCheck[index] = true;
-			} 
+			}
 		}
-		for(int i = 0; i < alphabetCheck.length; i++) {
-			if(alphabetCheck[i] == false) {
+		for (int i = 0; i < alphabetCheck.length; i++) {
+			if (alphabetCheck[i] == false) {
 				return false;
 			}
 		}
