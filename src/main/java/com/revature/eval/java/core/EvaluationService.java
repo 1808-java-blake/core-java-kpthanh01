@@ -1,5 +1,9 @@
 package com.revature.eval.java.core;
 
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.List;
@@ -418,9 +422,27 @@ public class EvaluationService {
 	 * @param i
 	 * @return
 	 */
-	public int calculateNthPrime(int i) {
+	public int calculateNthPrime(int nth) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+		int count, num, i;
+		num = 1;
+		count = 0;
+		if(nth == 0) {
+			throw new IllegalArgumentException("You cannot have 0 as the nth number");
+		}
+		while(count < nth) {
+			num += 1;
+			for(i = 2; i <= num; i++) {
+				if(num % i == 0) {
+					break;
+				}
+			}
+			if(i == num) {
+				count += 1;
+			}
+		}
+		System.out.println(num);
+		return num;
 	}
 
 	/**
@@ -539,8 +561,14 @@ public class EvaluationService {
 	 * @return
 	 */
 	public Temporal getGigasecondDate(Temporal given) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		//In case,time not included
+        if(given instanceof LocalDate) {
+            LocalDateTime time = LocalDateTime.of((LocalDate) given, LocalTime.MIN);
+            return time.plus(Duration.ofSeconds(1000000000l));
+        }
+        //if time is included
+        LocalDateTime time = LocalDateTime.from(given);
+        return time.plus(Duration.ofSeconds(1000000000l));
 	}
 
 	/**

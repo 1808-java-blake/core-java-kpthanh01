@@ -6,54 +6,60 @@ import java.util.List;
 public class Homework1 {
 	public static void main(String[] args) {
 		Homework1 test = new Homework1();
-		int[] set = { 4, 6 };
-		test.toPigLatin("quick fast run");
-
+		test.isLuhnValid("046 454 286");
+		test.isLuhnValid("046 454 287");
+		test.isLuhnValid("8273 1232 7352 0569");
+		test.isLuhnValid("046a 454 286");
+		test.isLuhnValid("055-444-285");
 	}
+
 	/**
-	 * 8. Implement a program that translates from English to Pig Latin.
+	 * 19. Given a number determine whether or not it is valid per the Luhn formula.
 	 * 
-	 * Pig Latin is a made-up children's language that's intended to be confusing.
-	 * It obeys a few simple rules (below), but when it's spoken quickly it's really
-	 * difficult for non-children (and non-native speakers) to understand.
+	 * The Luhn algorithm is a simple checksum formula used to validate a variety of
+	 * identification numbers, such as credit card numbers and Canadian Social
+	 * Insurance Numbers.
 	 * 
-	 * Rule 1: If a word begins with a vowel sound, add an "ay" sound to the end of
-	 * the word. Rule 2: If a word begins with a consonant sound, move it to the end
-	 * of the word, and then add an "ay" sound to the end of the word. There are a
-	 * few more rules for edge cases, and there are regional variants too.
+	 * The task is to check if a given string is valid.
 	 * 
-	 * See http://en.wikipedia.org/wiki/Pig_latin for more details.
+	 * Validating a Number Strings of length 1 or less are not valid. Spaces are
+	 * allowed in the input, but they should be stripped before checking. All other
+	 * non-digit characters are disallowed.
+	 * 
+	 * Example 1: valid credit card number 1 4539 1488 0343 6467 The first step of
+	 * the Luhn algorithm is to double every second digit, starting from the right.
+	 * We will be doubling
+	 * 
+	 * 4_3_ 1_8_ 0_4_ 6_6_ If doubling the number results in a number greater than 9
+	 * then subtract 9 from the product. The results of our doubling:
+	 * 
+	 * 8569 2478 0383 3437 Then sum all of the digits:
+	 * 
+	 * 8+5+6+9+2+4+7+8+0+3+8+3+3+4+3+7 = 80 If the sum is evenly divisible by 10,
+	 * then the number is valid. This number is valid!
+	 * 
+	 * Example 2: invalid credit card number 1 8273 1232 7352 0569 Double the second
+	 * digits, starting from the right
+	 * 
+	 * 7253 2262 5312 0539 Sum the digits
+	 * 
+	 * 7+2+5+3+2+2+6+2+5+3+1+2+0+5+3+9 = 57 57 is not evenly divisible by 10, so
+	 * this number is not valid.
 	 * 
 	 * @param string
 	 * @return
 	 */
-	public String toPigLatin(String string) {
+	public boolean isLuhnValid(String string) {
 		// TODO Write an implementation for this method declaration
-//		int stringLength = string.length();
-//		String pigLatin = string;
-//		String trimmed = "";
-//		String answer = "";
-//		for(int i = 0; i < pigLatin.length(); i++) {
-//			if("aeiou".indexOf(pigLatin.charAt(i)) != -1) {
-//				trimmed = pigLatin.substring(0, i);
-//				pigLatin = pigLatin.substring(i, stringLength);
-//				break;
-//			}
-//		}
-//		answer = pigLatin + trimmed + "ay";
-		String answer = "";
-		
-		String[] tokens = string.split(" ");
-		
-		for(String word : tokens) {
-			for(int i = 0; i < word.length(); i++) {
-				if("aeiou".indexOf(word.charAt(i)) != -1) {
-					answer += word.substring(i, word.length()) + word.substring(0, i) + "ay ";
-					break;
-				}
-			}
+		string = string.replaceAll("\\s+", "");
+		System.out.println(string);
+		if(string.length() == 0 || string.length() == 1) {
+			return false;
 		}
-		System.out.println(answer);
-		return answer.trim();
+		else if(string.matches("^[-\\w.]+") == false) {
+			System.out.println("this has a character");
+			return false;
+		}
+		return false;
 	}
 }
