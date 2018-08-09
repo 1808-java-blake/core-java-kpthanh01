@@ -6,6 +6,7 @@ import java.util.List;
 public class Homework1 {
 	public static void main(String[] args) {
 		Homework1 test = new Homework1();
+		int[] set = { 4, 6 };
 		test.isLuhnValid("046 454 286");
 		test.isLuhnValid("046 454 287");
 		test.isLuhnValid("8273 1232 7352 0569");
@@ -51,15 +52,35 @@ public class Homework1 {
 	 */
 	public boolean isLuhnValid(String string) {
 		// TODO Write an implementation for this method declaration
+		int total = 0;
 		string = string.replaceAll("\\s+", "");
 		System.out.println(string);
 		if(string.length() == 0 || string.length() == 1) {
 			return false;
 		}
-		else if(string.matches("^[-\\w.]+") == false) {
-			System.out.println("this has a character");
+		else if(string.matches(".*\\D+.*") == true) {
+			System.out.println("this is false");
 			return false;
 		}
+//		String[] arr = string.split("");
+//		int[] numArr = new int[arr.length];
+//		for(int i = 0; i < numArr.length; i++) {
+//			numArr[i] = Integer.parseInt(arr[i]);
+//		}
+//		for(int i = 1; i < numArr.length; i+=2) {
+//			numArr[i] *= 2;
+//			if(numArr[i] > 9) {
+//				numArr[i] -= 9;
+//			}
+//		}
+//		for(int i = 0; i < numArr.length; i++) {
+//			total += numArr[i];
+//		}
+//		if(total % 10 == 0) {
+//			return true;
+//		} else {
+//			return false;
+//		}
 		return false;
 	}
 }
