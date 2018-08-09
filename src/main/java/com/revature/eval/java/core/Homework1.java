@@ -2,85 +2,30 @@ package com.revature.eval.java.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.SynchronousQueue;
 
 public class Homework1 {
 	public static void main(String[] args) {
 		Homework1 test = new Homework1();
 		int[] set = { 4, 6 };
-		test.isLuhnValid("046 454 286");
-		test.isLuhnValid("046 454 287");
-		test.isLuhnValid("8273 1232 7352 0569");
-		test.isLuhnValid("046a 454 286");
-		test.isLuhnValid("055-444-285");
+		test.getSumOfMultiples(15, set);
 	}
-
 	/**
-	 * 19. Given a number determine whether or not it is valid per the Luhn formula.
+	 * 18. Given a number, find the sum of all the unique multiples of particular
+	 * numbers up to but not including that number.
 	 * 
-	 * The Luhn algorithm is a simple checksum formula used to validate a variety of
-	 * identification numbers, such as credit card numbers and Canadian Social
-	 * Insurance Numbers.
+	 * If we list all the natural numbers below 20 that are multiples of 3 or 5, we
+	 * get 3, 5, 6, 9, 10, 12, 15, and 18.
 	 * 
-	 * The task is to check if a given string is valid.
+	 * The sum of these multiples is 78.
 	 * 
-	 * Validating a Number Strings of length 1 or less are not valid. Spaces are
-	 * allowed in the input, but they should be stripped before checking. All other
-	 * non-digit characters are disallowed.
-	 * 
-	 * Example 1: valid credit card number 1 4539 1488 0343 6467 The first step of
-	 * the Luhn algorithm is to double every second digit, starting from the right.
-	 * We will be doubling
-	 * 
-	 * 4_3_ 1_8_ 0_4_ 6_6_ If doubling the number results in a number greater than 9
-	 * then subtract 9 from the product. The results of our doubling:
-	 * 
-	 * 8569 2478 0383 3437 Then sum all of the digits:
-	 * 
-	 * 8+5+6+9+2+4+7+8+0+3+8+3+3+4+3+7 = 80 If the sum is evenly divisible by 10,
-	 * then the number is valid. This number is valid!
-	 * 
-	 * Example 2: invalid credit card number 1 8273 1232 7352 0569 Double the second
-	 * digits, starting from the right
-	 * 
-	 * 7253 2262 5312 0539 Sum the digits
-	 * 
-	 * 7+2+5+3+2+2+6+2+5+3+1+2+0+5+3+9 = 57 57 is not evenly divisible by 10, so
-	 * this number is not valid.
-	 * 
-	 * @param string
+	 * @param i
+	 * @param set
 	 * @return
 	 */
-	public boolean isLuhnValid(String string) {
+	public int getSumOfMultiples(int i, int[] set) {
 		// TODO Write an implementation for this method declaration
-		int total = 0;
-		string = string.replaceAll("\\s+", "");
-		System.out.println(string);
-		if(string.length() == 0 || string.length() == 1) {
-			return false;
-		}
-		else if(string.matches(".*\\D+.*") == true) {
-			System.out.println("this is false");
-			return false;
-		}
-//		String[] arr = string.split("");
-//		int[] numArr = new int[arr.length];
-//		for(int i = 0; i < numArr.length; i++) {
-//			numArr[i] = Integer.parseInt(arr[i]);
-//		}
-//		for(int i = 1; i < numArr.length; i+=2) {
-//			numArr[i] *= 2;
-//			if(numArr[i] > 9) {
-//				numArr[i] -= 9;
-//			}
-//		}
-//		for(int i = 0; i < numArr.length; i++) {
-//			total += numArr[i];
-//		}
-//		if(total % 10 == 0) {
-//			return true;
-//		} else {
-//			return false;
-//		}
-		return false;
+		return 0;
 	}
+
 }

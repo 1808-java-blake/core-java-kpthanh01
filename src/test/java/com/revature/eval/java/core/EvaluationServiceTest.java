@@ -365,35 +365,35 @@ public class EvaluationServiceTest {
 		assertTrue(evaluationService.isArmstrongNumber(input));
 	}
 
-//	/*******************************************************************
-//	 * Question 10
-//	 ******************************************************************/
-//
-//	@Test
-//	public void testPrimeNumber() {
-//		assertEquals(Collections.singletonList(2L), evaluationService.calculatePrimeFactorsOf(2L));
-//	}
-//
-//	@Test
-//	public void testSquareOfAPrime() {
-//		assertEquals(Arrays.asList(3L, 3L), evaluationService.calculatePrimeFactorsOf(9L));
-//	}
-//
-//	@Test
-//	public void testCubeOfAPrime() {
-//		assertEquals(Arrays.asList(2L, 2L, 2L), evaluationService.calculatePrimeFactorsOf(8L));
-//	}
-//
-//	@Test
-//	public void testProductOfPrimesAndNonPrimes() {
-//		assertEquals(Arrays.asList(2L, 2L, 3L), evaluationService.calculatePrimeFactorsOf(12L));
-//	}
-//
-//	@Test
-//	public void testProductOfPrimes() {
-//		assertEquals(Arrays.asList(5L, 17L, 23L, 461L), evaluationService.calculatePrimeFactorsOf(901255L));
-//	}
-//
+	/*******************************************************************
+	 * Question 10
+	 ******************************************************************/
+
+	@Test
+	public void testPrimeNumber() {
+		assertEquals(Collections.singletonList(2L), evaluationService.calculatePrimeFactorsOf(2L));
+	}
+
+	@Test
+	public void testSquareOfAPrime() {
+		assertEquals(Arrays.asList(3L, 3L), evaluationService.calculatePrimeFactorsOf(9L));
+	}
+
+	@Test
+	public void testCubeOfAPrime() {
+		assertEquals(Arrays.asList(2L, 2L, 2L), evaluationService.calculatePrimeFactorsOf(8L));
+	}
+
+	@Test
+	public void testProductOfPrimesAndNonPrimes() {
+		assertEquals(Arrays.asList(2L, 2L, 3L), evaluationService.calculatePrimeFactorsOf(12L));
+	}
+
+	@Test
+	public void testProductOfPrimes() {
+		assertEquals(Arrays.asList(5L, 17L, 23L, 461L), evaluationService.calculatePrimeFactorsOf(901255L));
+	}
+
 //	/*******************************************************************
 //	 * Question 11
 //	 ******************************************************************/
@@ -518,34 +518,34 @@ public class EvaluationServiceTest {
 //				EvaluationService.AtbashCipher.decode("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"));
 //	}
 //
-//	/*******************************************************************
-//	 * Question 15
-//	 ******************************************************************/
-//	@Test
-//	public void validIsbnNumber() {
-//		assertTrue(evaluationService.isValidIsbn("3-598-21508-8"));
-//	}
-//
-//	@Test
-//	public void invalidIsbnCheckDigit() {
-//		assertFalse(evaluationService.isValidIsbn("3-598-21508-9"));
-//	}
-//
-//	@Test
-//	public void validIsbnNumberWithCheckDigitOfTen() {
-//		assertTrue(evaluationService.isValidIsbn("3-598-21507-X"));
-//	}
-//
-//	@Test
-//	public void checkDigitIsACharacterOtherThanX() {
-//		assertFalse(evaluationService.isValidIsbn("3-598-21507-A"));
-//	}
-//
-//	@Test
-//	public void invalidCharacterInIsbn() {
-//		assertFalse(evaluationService.isValidIsbn("3-598-2K507-0"));
-//	}
-//
+	/*******************************************************************
+	 * Question 15
+	 ******************************************************************/
+	@Test
+	public void validIsbnNumber() {
+		assertTrue(evaluationService.isValidIsbn("3-598-21508-8"));
+	}
+
+	@Test
+	public void invalidIsbnCheckDigit() {
+		assertFalse(evaluationService.isValidIsbn("3-598-21508-9"));
+	}
+
+	@Test
+	public void validIsbnNumberWithCheckDigitOfTen() {
+		assertTrue(evaluationService.isValidIsbn("3-598-21507-X"));
+	}
+
+	@Test
+	public void checkDigitIsACharacterOtherThanX() {
+		assertFalse(evaluationService.isValidIsbn("3-598-21507-A"));
+	}
+
+	@Test
+	public void invalidCharacterInIsbn() {
+		assertFalse(evaluationService.isValidIsbn("3-598-2K507-0"));
+	}
+
 	/*******************************************************************
 	 * Question 16
 	 ******************************************************************/

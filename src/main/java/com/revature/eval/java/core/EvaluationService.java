@@ -365,8 +365,17 @@ public class EvaluationService {
 	 * @return
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		List<Long> arr = new ArrayList<>();
+		long primeNumDivider = 2;
+		while(l >= primeNumDivider) {
+			if(l % primeNumDivider == 0) {
+				arr.add(primeNumDivider);
+				l = l/primeNumDivider;
+			} else {
+				primeNumDivider++;
+			}
+		}
+		return arr;
 	}
 
 	/**
@@ -436,6 +445,7 @@ public class EvaluationService {
 				if(num % i == 0) {
 					break;
 				}
+				
 			}
 			if(i == num) {
 				count += 1;
@@ -517,8 +527,32 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isValidIsbn(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		int checkValidity = 0;
+		if (string.matches(".*[ABCDEFGHIJKLMNOPQRSTUVWYZ]+.*")) {
+			return false;
+		}
+
+		String trimmed = string.replaceAll("-", "");
+		String[] strIsbn = trimmed.split("");
+		int[] numArr = new int[strIsbn.length];
+
+		for (int i = 0; i < strIsbn.length; i++) {
+			if (strIsbn[i].matches("X")) {
+				strIsbn[i] = "10";
+//				System.out.println("X has been swapped");
+			}
+			numArr[i] = Integer.parseInt(strIsbn[i]);
+		}
+		for (int i = 0; i < numArr.length; i++) {
+			checkValidity += numArr[i] * (10 - i);
+		}
+		
+//		System.out.println(checkValidity);
+		if (checkValidity % 11 == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
