@@ -453,8 +453,22 @@ public class EvaluationService {
 		}
 
 		public String rotate(String string) {
-			// TODO Write an implementation for this method declaration
-			return null;
+			String ciphear = "";
+			for(int i = 0; i < string.length(); i++) {
+				if(Character.isUpperCase(string.charAt(i))) {
+					char temp = (char) ((int)(string.charAt(i) + key - 65) % 26 + 65);
+					ciphear += temp;
+				} 
+				else if(Character.isLowerCase(string.charAt(i))){
+					char temp = (char) ((int)(string.charAt(i) + key - 97) % 26 + 97);
+					ciphear += temp;
+				} else {
+					char temp = string.charAt(i);
+					ciphear += temp;
+				}
+			}
+//			System.out.println(ciphear);
+			return ciphear;
 		}
 
 	}
