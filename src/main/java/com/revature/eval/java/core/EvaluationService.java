@@ -267,8 +267,30 @@ public class EvaluationService {
 		private List<T> sortedList;
 
 		public int indexOf(T t) {
-			// TODO Write an implementation for this method declaration
-			return 0;
+			int low = 0;
+			int high = (int) sortedList.size()-1;
+			int key = (int) t;
+			int mid = 0;
+			int found = 0;
+//			System.out.println(high);
+			while(low <= high) {
+				mid = (low + high)/2;
+				int midElement = (int) sortedList.get(mid);
+//				System.out.println(mid);
+				if(midElement > key) {
+					high = mid - 1;
+				}
+				else if(midElement < key) {
+					low = mid + 1;
+				}
+				else if(midElement == key) {
+					found = mid;
+					break;
+				}
+			}
+			
+//			System.out.println(found);
+			return found;
 		}
 
 		public BinarySearch(List<T> sortedList) {
@@ -745,27 +767,27 @@ public class EvaluationService {
 				number.add(temp);
 			}
 		}
-		System.out.println(number);
+//		System.out.println(number);
 		
 		for(String temp : stringNum) {
 			if(temp.matches("plus")) {
-				System.out.println("This is adding");
+//				System.out.println("This is adding");
 				total = number.get(0) + number.get(1);
 			}
 			else if(temp.matches("minus")) {
-				System.out.println("This is subtracting");
+//				System.out.println("This is subtracting");
 				total = number.get(0) - number.get(1);
 			}
 			else if(temp.matches("multiplied")) {
-				System.out.println("This is multiplying");
+//				System.out.println("This is multiplying");
 				total = number.get(0) * number.get(1);
 			}
 			else if(temp.matches("divided")) {
-				System.out.println("This is dividing");
+//				System.out.println("This is dividing");
 				total = number.get(0) / number.get(1);
 			}
 		}
-		System.out.println(total);
+//		System.out.println(total);
 		
 		return total;
 	}
