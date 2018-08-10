@@ -267,15 +267,31 @@ public class EvaluationService {
 		private List<T> sortedList;
 
 		public int indexOf(T t) {
+			List<Integer> numArr = new ArrayList<>();
 			int low = 0;
-			int high = (int) sortedList.size()-1;
-			int key = (int) t;
+			int high = sortedList.size()-1;
+			int key = 0;
 			int mid = 0;
 			int found = 0;
-//			System.out.println(high);
+			if(t instanceof String) {
+				String temp = "";
+				int num = 0;
+				for(int i = 0; i < sortedList.size(); i++) {
+					temp = (String) sortedList.get(i);
+					num = Integer.parseInt(temp);
+					numArr.add(num);
+				}
+				key = Integer.parseInt((String) t);
+			} else {
+				key = (int) t;
+				numArr = (List<Integer>) sortedList;
+			}
+			
+//			System.out.println(key);
+			
 			while(low <= high) {
 				mid = (low + high)/2;
-				int midElement = (int) sortedList.get(mid);
+				int midElement = (int) numArr.get(mid);
 //				System.out.println(mid);
 				if(midElement > key) {
 					high = mid - 1;

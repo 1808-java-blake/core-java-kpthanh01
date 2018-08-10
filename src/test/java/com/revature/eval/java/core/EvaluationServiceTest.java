@@ -248,18 +248,18 @@ public class EvaluationServiceTest {
 //		Map<String, Integer> actualWordCount = evaluationService.wordCount("one,\ntwo,\nthree");
 //		assertEquals(expectedWordCount, actualWordCount);
 //	}
-//
-//	/*******************************************************************
-//	 * Question 7
-//	 ******************************************************************/
-//	@Test
-//	public void findsAValueInTheMiddleOfAnArray() {
-//		List<String> sortedList = Collections.unmodifiableList(Arrays.asList("1", "3", "4", "6", "8", "9", "11"));
-//
-//		EvaluationService.BinarySearch<String> search = new EvaluationService.BinarySearch<>(sortedList);
-//
-//		assertEquals(3, search.indexOf("6"));
-//	}
+
+	/*******************************************************************
+	 * Question 7
+	 ******************************************************************/
+	@Test
+	public void findsAValueInTheMiddleOfAnArray() {
+		List<String> sortedList = Collections.unmodifiableList(Arrays.asList("1", "3", "4", "6", "8", "9", "11"));
+
+		EvaluationService.BinarySearch<String> search = new EvaluationService.BinarySearch<>(sortedList);
+
+		assertEquals(3, search.indexOf("6"));
+	}
 
 	@Test
 	public void findsAValueAtTheBeginningOfAnArray() {
