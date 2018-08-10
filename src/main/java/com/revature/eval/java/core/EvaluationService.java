@@ -6,8 +6,10 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class EvaluationService {
 	/**
@@ -451,7 +453,7 @@ public class EvaluationService {
 				count += 1;
 			}
 		}
-		System.out.println(num);
+//		System.out.println(num);
 		return num;
 	}
 
@@ -618,9 +620,24 @@ public class EvaluationService {
 	 * @param set
 	 * @return
 	 */
-	public int getSumOfMultiples(int i, int[] set) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+	public int getSumOfMultiples(int n, int[] set) {
+		Set<Integer> arr = new HashSet<>();
+		int total = 0;
+		int temp = 0;
+		for (int i = 0; i < set.length; i++) {
+			for (int j = 1; j < n; j++) {
+				temp = j % set[i];
+				if (temp == 0) {
+					arr.add(j);
+				}
+			}
+		}
+//		System.out.println(arr);
+		for(Integer test : arr) {
+			total += test;
+		}
+//		System.out.println(total);
+		return total;
 	}
 
 	/**
@@ -718,8 +735,39 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int solveWordProblem(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		String[] stringNum = string.replace("?", "").split(" ");
+		List<Integer> number = new ArrayList<>();
+		int total = 0;
+		
+		for(int i = 0; i < stringNum.length; i++) {
+			if(stringNum[i].matches(".*\\d+.*")) {
+				int temp = Integer.parseInt(stringNum[i]);
+				number.add(temp);
+			}
+		}
+		System.out.println(number);
+		
+		for(String temp : stringNum) {
+			if(temp.matches("plus")) {
+				System.out.println("This is adding");
+				total = number.get(0) + number.get(1);
+			}
+			else if(temp.matches("minus")) {
+				System.out.println("This is subtracting");
+				total = number.get(0) - number.get(1);
+			}
+			else if(temp.matches("multiplied")) {
+				System.out.println("This is multiplying");
+				total = number.get(0) * number.get(1);
+			}
+			else if(temp.matches("divided")) {
+				System.out.println("This is dividing");
+				total = number.get(0) / number.get(1);
+			}
+		}
+		System.out.println(total);
+		
+		return total;
 	}
 
 }

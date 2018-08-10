@@ -607,54 +607,54 @@ public class EvaluationServiceTest {
 				evaluationService.getGigasecondDate(LocalDateTime.of(2015, Month.JANUARY, 24, 23, 59, 59)));
 	}
 
-//	/*******************************************************************
-//	 * Question 18
-//	 ******************************************************************/
-//	@Test
-//	public void testSumOfMultiplesOf4and6UpToFifteen() {
-//
-//		int[] set = { 4, 6 };
-//		int output = evaluationService.getSumOfMultiples(15, set);
-//		assertEquals(30, output);
-//
-//	}
-//
-//	@Test
-//	public void testSumOfMultiplesOf5and6and8UpToOneHundredFifty() {
-//
-//		int[] set = { 5, 6, 8 };
-//		int output = evaluationService.getSumOfMultiples(150, set);
-//		assertEquals(4419, output);
-//
-//	}
-//
-//	@Test
-//	public void testSumOfMultiplesOf5and25UpToFiftyOne() {
-//
-//		int[] set = { 5, 25 };
-//		int output = evaluationService.getSumOfMultiples(51, set);
-//		assertEquals(275, output);
-//
-//	}
-//
-//	@Test
-//	public void testSumOfMultiplesOf43and47UpToTenThousand() {
-//
-//		int[] set = { 43, 47 };
-//		int output = evaluationService.getSumOfMultiples(10000, set);
-//		assertEquals(2203160, output);
-//
-//	}
-//
-//	@Test
-//	public void testSumOfMultiplesOfOneUpToOneHundred() {
-//
-//		int[] set = { 1 };
-//		int output = evaluationService.getSumOfMultiples(100, set);
-//		assertEquals(4950, output);
-//
-//	}
-//
+	/*******************************************************************
+	 * Question 18
+	 ******************************************************************/
+	@Test
+	public void testSumOfMultiplesOf4and6UpToFifteen() {
+
+		int[] set = { 4, 6 };
+		int output = evaluationService.getSumOfMultiples(15, set);
+		assertEquals(30, output);
+
+	}
+
+	@Test
+	public void testSumOfMultiplesOf5and6and8UpToOneHundredFifty() {
+
+		int[] set = { 5, 6, 8 };
+		int output = evaluationService.getSumOfMultiples(150, set);
+		assertEquals(4419, output);
+
+	}
+
+	@Test
+	public void testSumOfMultiplesOf5and25UpToFiftyOne() {
+
+		int[] set = { 5, 25 };
+		int output = evaluationService.getSumOfMultiples(51, set);
+		assertEquals(275, output);
+
+	}
+
+	@Test
+	public void testSumOfMultiplesOf43and47UpToTenThousand() {
+
+		int[] set = { 43, 47 };
+		int output = evaluationService.getSumOfMultiples(10000, set);
+		assertEquals(2203160, output);
+
+	}
+
+	@Test
+	public void testSumOfMultiplesOfOneUpToOneHundred() {
+
+		int[] set = { 1 };
+		int output = evaluationService.getSumOfMultiples(100, set);
+		assertEquals(4950, output);
+
+	}
+
 	/*******************************************************************
 	 * Question 19
 	 ******************************************************************/
@@ -683,32 +683,32 @@ public class EvaluationServiceTest {
 		assertFalse(evaluationService.isLuhnValid("055-444-285"));
 	}
 
-//	/*******************************************************************
-//	 * Question 20
-//	 ******************************************************************/
-//	@Test
-//	public void testSingleAddition1() {
-//		assertEquals(2, evaluationService.solveWordProblem("What is 1 plus 1?"));
-//	}
-//
-//	@Test
-//	public void testSingleAdditionWithNegativeNumbers() {
-//		assertEquals(-11, evaluationService.solveWordProblem("What is -1 plus -10?"));
-//	}
-//
-//	@Test
-//	public void testSingleSubtraction() {
-//		assertEquals(16, evaluationService.solveWordProblem("What is 4 minus -12?"));
-//	}
-//
-//	@Test
-//	public void testSingleMultiplication() {
-//		assertEquals(-75, evaluationService.solveWordProblem("What is -3 multiplied by 25?"));
-//	}
-//
-//	@Test
-//	public void testSingleDivision() {
-//		assertEquals(-11, evaluationService.solveWordProblem("What is 33 divided by -3?"));
-//	}
-//
+	/*******************************************************************
+	 * Question 20
+	 ******************************************************************/
+	@Test
+	public void testSingleAddition1() {
+		assertEquals(2, evaluationService.solveWordProblem("What is 1 plus 1?"));
+	}
+
+	@Test
+	public void testSingleAdditionWithNegativeNumbers() {
+		assertEquals(-11, evaluationService.solveWordProblem("What is -1 plus -10?"));
+	}
+
+	@Test
+	public void testSingleSubtraction() {
+		assertEquals(16, evaluationService.solveWordProblem("What is 4 minus -12?"));
+	}
+
+	@Test
+	public void testSingleMultiplication() {
+		assertEquals(-75, evaluationService.solveWordProblem("What is -3 multiplied by 25?"));
+	}
+
+	@Test
+	public void testSingleDivision() {
+		assertEquals(-11, evaluationService.solveWordProblem("What is 33 divided by -3?"));
+	}
+
 }
